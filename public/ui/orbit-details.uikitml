@@ -1,0 +1,246 @@
+<!--
+  ORBIT — Spatial Intelligence Workspace
+  Meta VR Start Developer Competition 2026
+  Contextual Task Detail Inspector Panel
+-->
+<style>
+  .details-root {
+    flex-direction: column;
+    width: 380px;
+    background-color: #17181c;
+    border-radius: 18px;
+    border-width: 1px;
+    border-color: #2e3038;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 10px;
+  }
+
+  .header-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .eyebrow-text {
+    color: #00e5ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+
+  .task-title {
+    color: #fafaf7;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+  }
+
+  .task-desc {
+    color: #b0b5c0;
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .separator {
+    height: 1px;
+    background-color: #2b2e38;
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .field-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .field-label {
+    color: #8c92a2;
+    font-size: 14px;
+  }
+
+  .field-value {
+    color: #fafaf7;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .field-value-critical {
+    color: #f5a623;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .field-value-cyan {
+    color: #00e5ff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .field-value-violet {
+    color: #a259ff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .field-value-gold {
+    color: #f5a623;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .field-value-green {
+    color: #2ecc71;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .field-value-red {
+    color: #eb5757;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .stepper-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stepper-btn {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .button-group {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .action-btn {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .btn-label {
+    transform-translate-y: 1px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+</style>
+
+<Panel class="details-root">
+  <div class="header-row">
+    <span class="eyebrow-text">TASK INSPECTOR</span>
+    <span class="field-value-cyan" id="detail-node-id">integration</span>
+  </div>
+
+  <span class="task-title" id="detail-title">End-to-End System Integration</span>
+  <span class="task-desc" id="detail-desc">Connect spatial front-end clients with backend services and telemetry pipelines.</span>
+
+  <div class="separator"></div>
+
+  <div class="field-row">
+    <span class="field-label">Committed Duration:</span>
+    <span class="field-value" id="detail-duration">4 Days</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Critical Path:</span>
+    <span class="field-value-critical" id="detail-critical">YES (Zero Slack)</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Total Float / Slack:</span>
+    <span class="field-value-critical" id="detail-slack">0.0 Days</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Status / Priority:</span>
+    <span class="field-value" id="detail-status">NOT STARTED // CRITICAL</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Downstream Blast Radius:</span>
+    <span class="field-value-violet" id="detail-downstream">3 Tasks Blocked</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Bottleneck Score:</span>
+    <span class="field-value-critical" id="detail-bottleneck">88 / 100 (Convergence Gate)</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Assignee:</span>
+    <span class="field-value-cyan" id="detail-assignee">Systems Lead</span>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- Phase 3B: Spatial Dependency Creation Tool -->
+  <div class="field-row">
+    <span class="field-label">Dependency Tool:</span>
+    <span class="field-value-cyan" id="detail-draft-status">READY (Pinch Port)</span>
+  </div>
+  <span class="task-desc" id="detail-draft-desc">Pinch output port on right of task to draft new dependency edge.</span>
+
+  <div class="separator"></div>
+
+  <!-- Phase 3C: What-If Scenario Sandbox -->
+  <div class="header-row">
+    <span class="eyebrow-text">WHAT-IF SCENARIO SANDBOX</span>
+    <span class="field-value-cyan" id="detail-scenario-mode">BASELINE</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Simulate Task Duration:</span>
+    <div class="stepper-container">
+      <Button id="btn-dec-duration" class="stepper-btn">
+        <ButtonLabel class="btn-label">-1d</ButtonLabel>
+      </Button>
+      <span class="field-value-gold" id="detail-proposed-duration">4 Days</span>
+      <Button id="btn-inc-duration" class="stepper-btn">
+        <ButtonLabel class="btn-label">+1d</ButtonLabel>
+      </Button>
+    </div>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Projected Duration:</span>
+    <span class="field-value" id="detail-projected-duration">27 Days</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Schedule Delta:</span>
+    <span class="field-value-cyan" id="detail-schedule-delta">0.0 Days (Baseline)</span>
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Critical Path Changed:</span>
+    <span class="field-value" id="detail-path-shifted">NO (Intact)</span>
+  </div>
+
+  <div class="button-group">
+    <Button id="btn-simulate-scenario" class="action-btn">
+      <ButtonLabel class="btn-label">Simulate</ButtonLabel>
+    </Button>
+    <Button id="btn-apply-scenario" class="action-btn">
+      <ButtonLabel class="btn-label">Apply</ButtonLabel>
+    </Button>
+    <Button id="btn-discard-scenario" class="action-btn">
+      <ButtonLabel class="btn-label">Discard</ButtonLabel>
+    </Button>
+  </div>
+  <span class="task-desc" id="detail-scenario-feedback">Adjust duration and simulate to preview schedule impact without altering baseline.</span>
+</Panel>
+

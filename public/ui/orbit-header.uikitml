@@ -1,0 +1,190 @@
+<!--
+  ORBIT — Spatial Intelligence Workspace
+  Meta VR Start Developer Competition 2026
+  Header & Workspace Metric Summary Panel
+-->
+<style>
+  .header-root {
+    flex-direction: column;
+    width: 1100px;
+    background-color: #17181c;
+    border-radius: 20px;
+    border-width: 1px;
+    border-color: #2e3038;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 24px;
+    padding-right: 24px;
+    gap: 12px;
+  }
+
+  .top-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .branding-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .orbit-badge {
+    background-color: #00e5ff;
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .orbit-badge-text {
+    color: #0b0d11;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+  }
+
+  .title-text {
+    color: #fafaf7;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .header-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-action-btn {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .header-btn-label {
+    transform-translate-y: 1px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .status-tag {
+    color: #a259ff;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .metrics-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .metric-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    background-color: #212329;
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: #353842;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .metric-card-critical {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    background-color: #2b2210;
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: #f5a623;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .metric-label {
+    color: #9ba1b0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .metric-value {
+    color: #fafaf7;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .metric-value-gold {
+    color: #f5a623;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .metric-value-cyan {
+    color: #00e5ff;
+    font-size: 16px;
+    font-weight: 700;
+  }
+</style>
+
+<Panel class="header-root">
+  <div class="top-row">
+    <div class="branding-container">
+      <div class="orbit-badge">
+        <span class="orbit-badge-text">ORBIT</span>
+      </div>
+      <span class="title-text">Spatial Intelligence Workspace</span>
+    </div>
+    <div class="header-actions">
+      <Button id="btn-header-guide" class="header-action-btn">
+        <ButtonLabel class="header-btn-label">? Guide</ButtonLabel>
+      </Button>
+      <Button id="btn-header-reset" class="header-action-btn">
+        <ButtonLabel class="header-btn-label">Reset Demo</ButtonLabel>
+      </Button>
+      <span class="status-tag">Software Product Launch DAG // Phase 5</span>
+    </div>
+  </div>
+
+  <div class="metrics-row">
+    <div class="metric-card">
+      <Clock></Clock>
+      <span class="metric-label">Duration:</span>
+      <span class="metric-value-cyan" id="metric-duration">27 Days</span>
+    </div>
+
+    <div class="metric-card-critical">
+      <Activity></Activity>
+      <span class="metric-label">Critical Path:</span>
+      <span class="metric-value-gold" id="metric-critical">6 Tasks (Zero Slack)</span>
+    </div>
+
+    <div class="metric-card">
+      <GitBranch></GitBranch>
+      <span class="metric-label">Dependencies:</span>
+      <span class="metric-value" id="metric-edges">12 Constraints</span>
+    </div>
+
+    <div class="metric-card">
+      <CircleAlert></CircleAlert>
+      <span class="metric-label">Top Bottleneck:</span>
+      <span class="metric-value-gold" id="metric-bottleneck">Integration (88/100)</span>
+    </div>
+
+    <div class="metric-card">
+      <CircleCheck></CircleCheck>
+      <span class="metric-label">Progress:</span>
+      <span class="metric-value" id="metric-progress">1 / 9 Completed</span>
+    </div>
+  </div>
+</Panel>
+

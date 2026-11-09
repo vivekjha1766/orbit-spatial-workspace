@@ -1,0 +1,139 @@
+<!--
+  ORBIT — Spatial Intelligence Workspace
+  Meta VR Start Developer Competition 2026
+  Phase 5: Guided Five-Minute Experience HUD Panel
+-->
+<style>
+  .onboarding-root {
+    flex-direction: column;
+    width: 680px;
+    background-color: #15161b;
+    border-radius: 18px;
+    border-width: 1.5px;
+    border-color: #00e5ff;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 8px;
+  }
+
+  .header-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .badge-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .badge-box {
+    background-color: #00e5ff;
+    border-radius: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .badge-text {
+    color: #0b0d11;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .step-indicator {
+    color: #8c92a2;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .guide-title {
+    color: #fafaf7;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 23px;
+  }
+
+  .guide-desc {
+    color: #b0b5c0;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .prompt-box {
+    background-color: #14282e;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #00e5ff;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .prompt-text {
+    color: #00e5ff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  .button-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .action-btn {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-label {
+    transform-translate-y: 1px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+</style>
+
+<Panel class="onboarding-root">
+  <div class="header-row">
+    <div class="badge-container">
+      <div class="badge-box">
+        <span class="badge-text" id="guide-badge">GUIDE // 1 OF 6</span>
+      </div>
+      <span class="step-indicator" id="guide-step-name">STEP 1: WELCOME</span>
+    </div>
+  </div>
+
+  <span class="guide-title" id="guide-title">Welcome to ORBIT</span>
+  <span class="guide-desc" id="guide-desc">Complex workflows are easier to understand when you can see how everything connects. Explore your project, discover bottlenecks and make informed decisions in space.</span>
+
+  <div class="prompt-box" id="guide-prompt-box">
+    <span class="prompt-text" id="guide-prompt">Click "Start Exploring" to examine your workspace layout.</span>
+  </div>
+
+  <div class="button-row">
+    <Button id="btn-guide-prev" class="action-btn">
+      <ButtonLabel class="btn-label">&lt; Back</ButtonLabel>
+    </Button>
+    <Button id="btn-guide-skip" class="action-btn">
+      <ButtonLabel class="btn-label" id="btn-guide-skip-label">Skip Tour</ButtonLabel>
+    </Button>
+    <Button id="btn-guide-reset" class="action-btn">
+      <ButtonLabel class="btn-label">Reset Demo</ButtonLabel>
+    </Button>
+    <Button id="btn-guide-next" class="action-btn">
+      <ButtonLabel class="btn-label" id="btn-guide-next-label">Start Exploring</ButtonLabel>
+    </Button>
+  </div>
+</Panel>

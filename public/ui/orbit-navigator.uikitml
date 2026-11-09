@@ -1,0 +1,262 @@
+<!--
+  ORBIT — Spatial Intelligence Workspace
+  Meta VR Start Developer Competition 2026
+  ORBIT Navigator: Workflow Intelligence & Recommendation Panel
+-->
+<style>
+  .navigator-root {
+    flex-direction: column;
+    width: 400px;
+    background-color: #17181c;
+    border-radius: 18px;
+    border-width: 1px;
+    border-color: #2e3038;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 10px;
+  }
+
+  .header-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .eyebrow-text {
+    color: #a259ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+
+  .rec-counter {
+    color: #00e5ff;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .summary-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .badge-critical {
+    background-color: #3b1919;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #eb5757;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .badge-critical-text {
+    color: #eb5757;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .badge-high {
+    background-color: #3b2814;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #f5a623;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .badge-high-text {
+    color: #f5a623;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .badge-medium {
+    background-color: #242436;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: #a259ff;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .badge-medium-text {
+    color: #a259ff;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .rec-card {
+    flex-direction: column;
+    background-color: #1f2128;
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: #323540;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    gap: 8px;
+  }
+
+  .rec-title {
+    color: #fafaf7;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 22px;
+  }
+
+  .rec-explanation {
+    color: #b0b5c0;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .separator {
+    height: 1px;
+    background-color: #2b2e38;
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+
+  .evidence-box {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .evidence-label {
+    color: #8c92a2;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .evidence-item {
+    color: #cfd4e0;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .impact-box {
+    background-color: #14282e;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #00e5ff;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .impact-text {
+    color: #00e5ff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+
+  .button-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .nav-btn {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .action-btn {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn-label {
+    transform-translate-y: 1px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .status-text {
+    color: #8c92a2;
+    font-size: 12px;
+  }
+</style>
+
+<Panel class="navigator-root">
+  <div class="header-row">
+    <span class="eyebrow-text">ORBIT NAVIGATOR // INTELLIGENCE</span>
+    <span class="rec-counter" id="nav-rec-index">1 / 5</span>
+  </div>
+
+  <div class="summary-row">
+    <div class="badge-critical" id="badge-crit-box">
+      <span class="badge-critical-text" id="badge-crit-text">2 CRITICAL</span>
+    </div>
+    <div class="badge-high" id="badge-high-box">
+      <span class="badge-high-text" id="badge-high-text">1 HIGH</span>
+    </div>
+    <div class="badge-medium" id="badge-med-box">
+      <span class="badge-medium-text" id="badge-med-text">2 MEDIUM</span>
+    </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="rec-card">
+    <div class="header-row">
+      <span class="eyebrow-text" id="nav-rec-category">BOTTLENECK</span>
+      <span class="badge-critical-text" id="nav-rec-severity">CRITICAL</span>
+    </div>
+
+    <span class="rec-title" id="nav-rec-title">Convergence Bottleneck: End-to-End System Integration</span>
+    <span class="rec-explanation" id="nav-rec-explanation">Task is a primary convergence gateway with score 88/100. It coordinates 3 upstream workstreams and unblocks 2 successors.</span>
+
+    <div class="evidence-box">
+      <span class="evidence-label">GRAPH EVIDENCE:</span>
+      <span class="evidence-item" id="nav-evidence-1">- Bottleneck Score: 88/100 (Convergence Gate)</span>
+      <span class="evidence-item" id="nav-evidence-2">- Merges 3 incoming workflows on Critical Path</span>
+      <span class="evidence-item" id="nav-evidence-3">- Controls 3 downstream dependent tasks</span>
+    </div>
+
+    <div class="impact-box" id="nav-impact-box">
+      <span class="impact-text" id="nav-impact-text">Impact: Compressing duration from 4d to 3d relieves convergence pressure.</span>
+    </div>
+  </div>
+
+  <div class="button-row">
+    <Button id="btn-nav-prev" class="action-btn">
+      <ButtonLabel class="btn-label">&lt; Prev</ButtonLabel>
+    </Button>
+    <Button id="btn-nav-highlight" class="action-btn">
+      <ButtonLabel class="btn-label">Highlight 3D</ButtonLabel>
+    </Button>
+    <Button id="btn-nav-next" class="action-btn">
+      <ButtonLabel class="btn-label">Next &gt;</ButtonLabel>
+    </Button>
+  </div>
+
+  <div class="button-row">
+    <Button id="btn-nav-simulate" class="action-btn">
+      <ButtonLabel class="btn-label">Simulate Action</ButtonLabel>
+    </Button>
+    <Button id="btn-nav-apply" class="action-btn">
+      <ButtonLabel class="btn-label">Apply to Baseline</ButtonLabel>
+    </Button>
+  </div>
+
+  <span class="status-text" id="nav-feedback">Select recommendation to inspect spatial impact and simulate changes.</span>
+</Panel>
